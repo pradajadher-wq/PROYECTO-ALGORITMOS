@@ -129,7 +129,5 @@ def geocodificar_puntos():
 # -------------------------------------------------------
 if __name__ == "__main__":
     print("Librerías cargadas correctamente ✓")
-    print(f"Electrolineras definidas : {len(electrolineras)}")
-    print(f"Puntos de recorrido      : {len(puntos_recorrido)}\n")
+    print(f"Electrolineras definidas: {len(electrolineras)}\n")
     geocodificar_electrolineras()
-    geocodificar_puntos()
