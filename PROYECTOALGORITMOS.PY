@@ -1,29 +1,13 @@
-# =============================================================================
-# PROYECTO INTEGRADOR 2026-1
-# Sistema de electrolineras - Área metropolitana de Bucaramanga
-# =============================================================================
-
-# -------------------------------------------------------
-# LIBRERÍAS
-# -------------------------------------------------------
-
-# Manejo de datos y archivos
 import os
 import json
 import csv
 import math
 import random
-
-# Grafos y mapa vial
 import osmnx as ox
 import networkx as nx
-
-# Visualización
 import folium
 import plotly.express as px
 import plotly.graph_objects as go
-
-# Inteligencia Artificial
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVR
@@ -62,19 +46,12 @@ electrolineras = [
 # -------------------------------------------------------
 
 def geocodificar_lugar(query):
-    """Retorna (latitud, longitud) de un lugar. Si falla retorna (None, None)."""
     try:
         lat, lon = ox.geocode(query)
         return lat, lon
     except Exception as e:
         print(f"  [AVISO] No se pudo geocodificar '{query}': {e}")
         return None, None
-
-
-# -------------------------------------------------------
-# PUNTOS FIJOS DE RECORRIDO
-# Origen y destino de los vehículos en la simulación.
-# -------------------------------------------------------
 
 puntos_recorrido = [
     {"id": 1,  "abreviatura": "UIS-CC",  "nombre": "Universidad Industrial de Santander Campus Central",   "municipio": "Bucaramanga",   "latitud": 7.140911,  "longitud": -73.119400},
@@ -91,8 +68,6 @@ puntos_recorrido = [
 
 
 def geocodificar_electrolineras():
-    """Llena las coordenadas de cada electrolinera consultando OpenStreetMap.
-    Si ya tiene coordenadas asignadas manualmente, las respeta."""
     print("Geocodificando electrolineras...")
     for e in electrolineras:
         if e["latitud"] is not None:
@@ -105,10 +80,7 @@ def geocodificar_electrolineras():
         if lat:
             print(f"  ✓ [{e['id']}] {e['nombre']} → ({lat:.4f}, {lon:.4f})")
 
-
 def geocodificar_puntos():
-    """Llena las coordenadas de cada punto de recorrido consultando OpenStreetMap.
-    Si ya tiene coordenadas asignadas manualmente, las respeta."""
     print("\nGeocodificando puntos de recorrido...")
     for p in puntos_recorrido:
         if p["latitud"] is not None:
@@ -122,12 +94,69 @@ def geocodificar_puntos():
             print(f"  ✓ [{p['id']}] {p['abreviatura']} → ({lat:.4f}, {lon:.4f})")
         else:
             print(f"  ✗ [{p['id']}] {p['abreviatura']} → NO ENCONTRADO (poner manual)")
-
-
-# -------------------------------------------------------
-# VERIFICACIÓN
-# -------------------------------------------------------
-if __name__ == "__main__":
-    print("Librerías cargadas correctamente ✓")
-    print(f"Electrolineras definidas: {len(electrolineras)}\n")
-    geocodificar_electrolineras()
+vehiculos = [
+    {
+        "id"               : 1,
+        "nombre"           : "Tesla Model S AWD",
+        "gama"             : "alta",
+        "autonomia_km"     : 590,
+        "bateria_kwh"      : 95.0,
+        "consumo_kwh_km"   : round(95.0 / 590, 4),  # 0.1610 kWh/km
+        "nivel_recarga_min": 10,                     # % mínimo de batería
+        "nivel_recarga_max": 20,                     # % máximo de batería
+        "bateria_actual"   : 100.0,                  # estado inicial
+        "total_recargas"   : 0,
+        "km_recorridos"    : 0.0
+    },
+    {
+        "id"               : 2,
+        "nombre"           : "BYD Dolphin 60.4 kWh",
+        "gama"             : "baja",
+        "autonomia_km"     : 350,
+        "bateria_kwh"      : 58.0,
+        "consumo_kwh_km"   : round(58.0 / 350, 4),  # 0.1657 kWh/km
+        "nivel_recarga_min": 10,
+        "nivel_recarga_max": 20,
+        "bateria_actual"   : 100.0,
+        "total_recargas"   : 0,
+        "km_recorridos"    : 0.0
+    }
+]
+geocodificar_electrolineras()
+geocodificar_puntos()
+opcion = 0
+while opcion != 9:
+    print("   SISTEMA DE ELECTROLINERAS - BGA")
+    print("1. Ver electrolineras y puntos de recorrido")
+    print("2. Ver vehículos registrados")
+    print("3. Cargar grafo de la red vial")
+    print("4. Ejecutar simulación de recorridos")
+    print("5. Ver estadísticas de recargas")
+    print("6. Predecir nuevas ubicaciones (IA)")
+    print("7. Visualizar mapa")
+    print("8. Guardar datos en archivos")
+    print("9. Salir")
+    opcion = int(input("Escoja una opcion 1-9: "))
+    match opcion:
+        case 1:
+            print(f"\nElectrolineras: {len(electrolineras)}")
+            for e in electrolineras:
+                if e["latitud"] is not None:
+                    print(f"  [{e['id']}] {e['nombre']} - {e['municipio']} ({e['latitud']:.4f}, {e['longitud']:.4f})")
+                else:
+                    print(f"  [{e['id']}] {e['nombre']} - {e['municipio']} (sin coordenadas)")
+            print(f"\nPuntos de recorrido: {len(puntos_recorrido)}")
+            for p in puntos_recorrido:
+                if p["latitud"] is not None:
+                    print(f"  [{p['id']}] {p['abreviatura']} - {p['nombre']} ({p['latitud']:.4f}, {p['longitud']:.4f})")
+                else:
+                    print(f"  [{p['id']}] {p['abreviatura']} - {p['nombre']} (sin coordenadas)")
+        case 2:
+            print("\nVehículos:")
+            for v in vehiculos:
+                print(f"  [{v['id']}] {v['nombre']} | {v['gama']} gama | {v['autonomia_km']} km")
+        case 9:
+            print("Hasta luego!")
+        case _:
+            print("Opción no válida, intente de nuevo")
+            
