@@ -93,4 +93,6 @@ def geocodificar_electrolineras():
 if __name__ == "__main__":
     print("Librerías cargadas correctamente ✓")
     print(f"Electrolineras definidas: {len(electrolineras)}\n")
-    geocodificar_electrolineras()
+    geocodificar_electrolineras() 
+
+#holajohen
