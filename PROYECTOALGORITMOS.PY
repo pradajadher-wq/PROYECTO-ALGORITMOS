@@ -71,6 +71,25 @@ def geocodificar_lugar(query):
         return None, None
 
 
+# -------------------------------------------------------
+# PUNTOS FIJOS DE RECORRIDO
+# Origen y destino de los vehículos en la simulación.
+# -------------------------------------------------------
+
+puntos_recorrido = [
+    {"id": 1,  "abreviatura": "UIS-CC",  "nombre": "Universidad Industrial de Santander Campus Central",   "municipio": "Bucaramanga",   "latitud": 7.140911,  "longitud": -73.119400},
+    {"id": 2,  "abreviatura": "UIS-CF",  "nombre": "Universidad Industrial de Santander Campus Florida",   "municipio": "Floridablanca", "latitud": 7.061456,  "longitud": -73.088661},
+    {"id": 3,  "abreviatura": "UIS-PTG", "nombre": "Parque Tecnologico Guatiguara Piedecuesta",            "municipio": "Piedecuesta",   "latitud": 6.994364,  "longitud": -73.065715},
+    {"id": 4,  "abreviatura": "UIS-BUC", "nombre": "Universidad Industrial de Santander Bucarica",         "municipio": "Bucaramanga",   "latitud": 7.119359,  "longitud": -73.123479},
+    {"id": 5,  "abreviatura": "CENFER",  "nombre": "CENFER Bucaramanga",                                   "municipio": "Bucaramanga",   "latitud": None, "longitud": None},
+    {"id": 6,  "abreviatura": "UNAB",    "nombre": "Universidad Autonoma de Bucaramanga",                  "municipio": "Bucaramanga",   "latitud": None, "longitud": None},
+    {"id": 7,  "abreviatura": "UTS",     "nombre": "Unidades Tecnologicas de Santander",                   "municipio": "Bucaramanga",   "latitud": None, "longitud": None},
+    {"id": 8,  "abreviatura": "UPB",     "nombre": "Universidad Pontificia Bolivariana Bucaramanga",       "municipio": "Bucaramanga",   "latitud": 7.0381473, "longitud": -73.0747789},
+    {"id": 9,  "abreviatura": "PTAR",    "nombre": "Planta de Tratamiento Aguas Residuales Rio Frio",      "municipio": "Floridablanca", "latitud": 7.063217,    "longitud": -73.130492,  },
+    {"id": 10, "abreviatura": "CATAY",   "nombre": "Sede Recreacional Catay",                              "municipio": "Giron",         "latitud": 6.9758282,   "longitud": -73.0537166, },
+]
+
+
 def geocodificar_electrolineras():
     """Llena las coordenadas de cada electrolinera consultando OpenStreetMap.
     Si ya tiene coordenadas asignadas manualmente, las respeta."""
@@ -87,10 +106,30 @@ def geocodificar_electrolineras():
             print(f"  ✓ [{e['id']}] {e['nombre']} → ({lat:.4f}, {lon:.4f})")
 
 
+def geocodificar_puntos():
+    """Llena las coordenadas de cada punto de recorrido consultando OpenStreetMap.
+    Si ya tiene coordenadas asignadas manualmente, las respeta."""
+    print("\nGeocodificando puntos de recorrido...")
+    for p in puntos_recorrido:
+        if p["latitud"] is not None:
+            print(f"  ✓ [{p['id']}] {p['abreviatura']} → ({p['latitud']:.4f}, {p['longitud']:.4f}) [manual]")
+            continue
+        query = f"{p['nombre']}, {p['municipio']}, Colombia"
+        lat, lon = geocodificar_lugar(query)
+        p["latitud"]  = lat
+        p["longitud"] = lon
+        if lat:
+            print(f"  ✓ [{p['id']}] {p['abreviatura']} → ({lat:.4f}, {lon:.4f})")
+        else:
+            print(f"  ✗ [{p['id']}] {p['abreviatura']} → NO ENCONTRADO (poner manual)")
+
+
 # -------------------------------------------------------
 # VERIFICACIÓN
 # -------------------------------------------------------
 if __name__ == "__main__":
     print("Librerías cargadas correctamente ✓")
-    print(f"Electrolineras definidas: {len(electrolineras)}\n")
+    print(f"Electrolineras definidas : {len(electrolineras)}")
+    print(f"Puntos de recorrido      : {len(puntos_recorrido)}\n")
     geocodificar_electrolineras()
+    geocodificar_puntos()
