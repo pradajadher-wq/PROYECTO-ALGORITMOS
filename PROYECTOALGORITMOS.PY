@@ -95,5 +95,3 @@ if __name__ == "__main__":
     print(f"Electrolineras definidas: {len(electrolineras)}\n")
     geocodificar_electrolineras() 
 
-#holajohen
-git --push
