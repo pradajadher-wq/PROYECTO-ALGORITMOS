@@ -145,7 +145,7 @@ while opcion != 9:
     print("8. Guardar datos en archivos")
     print("9. Salir")
 
-    opcion = input("Escoge una opcion 1-9: ")
+    opcion = input("Escoge una opcion 1-9: ").strip()
     if opcion.isdigit():
         opcion = int(opcion)
     else:
