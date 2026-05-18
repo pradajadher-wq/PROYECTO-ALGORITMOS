@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "nombre": "Homecenter Bucaramanga",
+    "municipio": "Bucaramanga",
+    "latitud": 7.1155902,
+    "longitud": -73.1211027,
+    "recargas": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Centro Comercial Quinta Etapa",
+    "municipio": "Floridablanca",
+    "latitud": 7.115271,
+    "longitud": -73.107654,
+    "recargas": 0
+  },
+  {
+    "id": 3,
+    "nombre": "Centro Comercial Cacique",
+    "municipio": "Bucaramanga",
+    "latitud": 7.0997065,
+    "longitud": -73.1074055,
+    "recargas": 0
+  },
+  {
+    "id": 4,
+    "nombre": "Centro Comercial Canaveral",
+    "municipio": "Floridablanca",
+    "latitud": 7.070825,
+    "longitud": -73.106952,
+    "recargas": 0
+  },
+  {
+    "id": 5,
+    "nombre": "Estacion de Servicio Terpel Piedecuesta",
+    "municipio": "Piedecuesta",
+    "latitud": 6.9980135,
+    "longitud": -73.0521321,
+    "recargas": 5
+  },
+  {
+    "id": 6,
+    "nombre": "Exito de la Rosita",
+    "municipio": "Bucaramanga",
+    "latitud": 7.114483,
+    "longitud": -73.122846,
+    "recargas": 0
+  },
+  {
+    "id": 7,
+    "nombre": "Centro Comercial La Florida",
+    "municipio": "Floridablanca",
+    "latitud": 7.0700633,
+    "longitud": -73.1048124,
+    "recargas": 2
+  },
+  {
+    "id": 8,
+    "nombre": "Promotores del Oriente via a Giron",
+    "municipio": "Giron",
+    "latitud": 7.085378,
+    "longitud": -73.164541,
+    "recargas": 0
+  }
+]

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_70658e131300ef7e525045d60ac52f7d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_70658e131300ef7e525045d60ac52f7d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_70658e131300ef7e525045d60ac52f7d = L.map(
+                "map_70658e131300ef7e525045d60ac52f7d",
+                {
+                    center: [7.1193, -73.1227],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d2cdf5d9e726e5214e3eaddc1731ee44 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d2cdf5d9e726e5214e3eaddc1731ee44.addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var marker_4076cb1b21ca68b99ebb280e8f82c17f = L.marker(
+                [7.1155902, -73.1211027],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_b20c89e3104c675b467bd532b40e2525 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d29db4658ae80f8147aae0e9e4c7cd9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_56261ef7c77eecfb1034aef03ab8be6c = $(`<div id="html_56261ef7c77eecfb1034aef03ab8be6c" style="width: 100.0%; height: 100.0%;">Homecenter Bucaramanga - Recargas: 1</div>`)[0];
+                popup_0d29db4658ae80f8147aae0e9e4c7cd9.setContent(html_56261ef7c77eecfb1034aef03ab8be6c);
+            
+        
+
+        marker_4076cb1b21ca68b99ebb280e8f82c17f.bindPopup(popup_0d29db4658ae80f8147aae0e9e4c7cd9)
+        ;
+
+        
+    
+    
+            marker_4076cb1b21ca68b99ebb280e8f82c17f.bindTooltip(
+                `<div>
+                     Homecenter Bucaramanga
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4076cb1b21ca68b99ebb280e8f82c17f.setIcon(icon_b20c89e3104c675b467bd532b40e2525);
+            
+    
+            var marker_561caa75019ffeb10daab7e30748be66 = L.marker(
+                [7.115271, -73.107654],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_ae3153781a611d9dd0915f4e1af986e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c0172ce7098a4a242d1ca5645a0f77a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee605c347cae9f7c8cc6edc54ba15618 = $(`<div id="html_ee605c347cae9f7c8cc6edc54ba15618" style="width: 100.0%; height: 100.0%;">Centro Comercial Quinta Etapa - Recargas: 0</div>`)[0];
+                popup_c0172ce7098a4a242d1ca5645a0f77a0.setContent(html_ee605c347cae9f7c8cc6edc54ba15618);
+            
+        
+
+        marker_561caa75019ffeb10daab7e30748be66.bindPopup(popup_c0172ce7098a4a242d1ca5645a0f77a0)
+        ;
+
+        
+    
+    
+            marker_561caa75019ffeb10daab7e30748be66.bindTooltip(
+                `<div>
+                     Centro Comercial Quinta Etapa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_561caa75019ffeb10daab7e30748be66.setIcon(icon_ae3153781a611d9dd0915f4e1af986e0);
+            
+    
+            var marker_47a8dda1b66be7f602632dd672c258cf = L.marker(
+                [7.0997065, -73.1074055],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_c4575a2ce6c1d347f16c7dc493cd1a3d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c466f17a2e64c25fa28a1a1816adb8a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c49abbfc1b8c051c3292f5e1c57f69a8 = $(`<div id="html_c49abbfc1b8c051c3292f5e1c57f69a8" style="width: 100.0%; height: 100.0%;">Centro Comercial Cacique - Recargas: 0</div>`)[0];
+                popup_c466f17a2e64c25fa28a1a1816adb8a3.setContent(html_c49abbfc1b8c051c3292f5e1c57f69a8);
+            
+        
+
+        marker_47a8dda1b66be7f602632dd672c258cf.bindPopup(popup_c466f17a2e64c25fa28a1a1816adb8a3)
+        ;
+
+        
+    
+    
+            marker_47a8dda1b66be7f602632dd672c258cf.bindTooltip(
+                `<div>
+                     Centro Comercial Cacique
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47a8dda1b66be7f602632dd672c258cf.setIcon(icon_c4575a2ce6c1d347f16c7dc493cd1a3d);
+            
+    
+            var marker_cc45bbdb8f664d57c2149a9120b22223 = L.marker(
+                [7.070825, -73.106952],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_c20d0186a722119f86171a3ed27e86f4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67dd508e9dbaea7a513971a2435d852e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e5fda93cc425eb947bd478f4a408c4d = $(`<div id="html_8e5fda93cc425eb947bd478f4a408c4d" style="width: 100.0%; height: 100.0%;">Centro Comercial Canaveral - Recargas: 0</div>`)[0];
+                popup_67dd508e9dbaea7a513971a2435d852e.setContent(html_8e5fda93cc425eb947bd478f4a408c4d);
+            
+        
+
+        marker_cc45bbdb8f664d57c2149a9120b22223.bindPopup(popup_67dd508e9dbaea7a513971a2435d852e)
+        ;
+
+        
+    
+    
+            marker_cc45bbdb8f664d57c2149a9120b22223.bindTooltip(
+                `<div>
+                     Centro Comercial Canaveral
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc45bbdb8f664d57c2149a9120b22223.setIcon(icon_c20d0186a722119f86171a3ed27e86f4);
+            
+    
+            var marker_047b9448e8a71077e665c96086b5c77c = L.marker(
+                [6.9980135, -73.0521321],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_d630f70b8c7f309c71136f5e70495dee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d5c8fca8e25a8b4e4d70d5afae072ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12bf19340294a5cf46d454feaa9aa769 = $(`<div id="html_12bf19340294a5cf46d454feaa9aa769" style="width: 100.0%; height: 100.0%;">Estacion de Servicio Terpel Piedecuesta - Recargas: 5</div>`)[0];
+                popup_0d5c8fca8e25a8b4e4d70d5afae072ba.setContent(html_12bf19340294a5cf46d454feaa9aa769);
+            
+        
+
+        marker_047b9448e8a71077e665c96086b5c77c.bindPopup(popup_0d5c8fca8e25a8b4e4d70d5afae072ba)
+        ;
+
+        
+    
+    
+            marker_047b9448e8a71077e665c96086b5c77c.bindTooltip(
+                `<div>
+                     Estacion de Servicio Terpel Piedecuesta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_047b9448e8a71077e665c96086b5c77c.setIcon(icon_d630f70b8c7f309c71136f5e70495dee);
+            
+    
+            var marker_19b223f4454173f7481147cbf815ef2f = L.marker(
+                [7.114483, -73.122846],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_97279fb4be38121fd400733f8beaf53f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2bc26b17714b9a62ad2c3770db50a294 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57a6a3d1c0f734ac86088058386e59b5 = $(`<div id="html_57a6a3d1c0f734ac86088058386e59b5" style="width: 100.0%; height: 100.0%;">Exito de la Rosita - Recargas: 0</div>`)[0];
+                popup_2bc26b17714b9a62ad2c3770db50a294.setContent(html_57a6a3d1c0f734ac86088058386e59b5);
+            
+        
+
+        marker_19b223f4454173f7481147cbf815ef2f.bindPopup(popup_2bc26b17714b9a62ad2c3770db50a294)
+        ;
+
+        
+    
+    
+            marker_19b223f4454173f7481147cbf815ef2f.bindTooltip(
+                `<div>
+                     Exito de la Rosita
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_19b223f4454173f7481147cbf815ef2f.setIcon(icon_97279fb4be38121fd400733f8beaf53f);
+            
+    
+            var marker_a011ee333d4efc53ef2721afe97727d9 = L.marker(
+                [7.0700633, -73.1048124],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_6c27a59bc5b9580aa7dd213c8d80adff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47c5cf36e09e0c6cc9536a2e6771c20a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1ff3d376718d9d6825fae0523b76e87 = $(`<div id="html_b1ff3d376718d9d6825fae0523b76e87" style="width: 100.0%; height: 100.0%;">Centro Comercial La Florida - Recargas: 2</div>`)[0];
+                popup_47c5cf36e09e0c6cc9536a2e6771c20a.setContent(html_b1ff3d376718d9d6825fae0523b76e87);
+            
+        
+
+        marker_a011ee333d4efc53ef2721afe97727d9.bindPopup(popup_47c5cf36e09e0c6cc9536a2e6771c20a)
+        ;
+
+        
+    
+    
+            marker_a011ee333d4efc53ef2721afe97727d9.bindTooltip(
+                `<div>
+                     Centro Comercial La Florida
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a011ee333d4efc53ef2721afe97727d9.setIcon(icon_6c27a59bc5b9580aa7dd213c8d80adff);
+            
+    
+            var marker_9569ff844332de765f9b08176eaa81f2 = L.marker(
+                [7.085378, -73.164541],
+                {
+}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+            var icon_f7bfd1ecf0a89a2c493d9138b50780a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_695b3989003344de9d7558a3406d89fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee46731b731652cd178824d5a4075ebb = $(`<div id="html_ee46731b731652cd178824d5a4075ebb" style="width: 100.0%; height: 100.0%;">Promotores del Oriente via a Giron - Recargas: 0</div>`)[0];
+                popup_695b3989003344de9d7558a3406d89fb.setContent(html_ee46731b731652cd178824d5a4075ebb);
+            
+        
+
+        marker_9569ff844332de765f9b08176eaa81f2.bindPopup(popup_695b3989003344de9d7558a3406d89fb)
+        ;
+
+        
+    
+    
+            marker_9569ff844332de765f9b08176eaa81f2.bindTooltip(
+                `<div>
+                     Promotores del Oriente via a Giron
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9569ff844332de765f9b08176eaa81f2.setIcon(icon_f7bfd1ecf0a89a2c493d9138b50780a3);
+            
+    
+            var circle_marker_bc86b555b6bd00c9609420bb85823b2f = L.circleMarker(
+                [7.140911, -73.1194],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_b4d8cf790572100b8ba6fb0c194f79b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8450d5cac9cb00f4f878a6869766bdd2 = $(`<div id="html_8450d5cac9cb00f4f878a6869766bdd2" style="width: 100.0%; height: 100.0%;">Universidad Industrial de Santander Campus Central</div>`)[0];
+                popup_b4d8cf790572100b8ba6fb0c194f79b2.setContent(html_8450d5cac9cb00f4f878a6869766bdd2);
+            
+        
+
+        circle_marker_bc86b555b6bd00c9609420bb85823b2f.bindPopup(popup_b4d8cf790572100b8ba6fb0c194f79b2)
+        ;
+
+        
+    
+    
+            circle_marker_bc86b555b6bd00c9609420bb85823b2f.bindTooltip(
+                `<div>
+                     UIS-CC
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53d996810f09aa2c92dfb0539f8feaf5 = L.circleMarker(
+                [7.061456, -73.088661],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_f0a2cfa77cf0459b1a08fd46238df232 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2daf328db267f492a0a1cfb0ddda5f28 = $(`<div id="html_2daf328db267f492a0a1cfb0ddda5f28" style="width: 100.0%; height: 100.0%;">Universidad Industrial de Santander Campus Florida</div>`)[0];
+                popup_f0a2cfa77cf0459b1a08fd46238df232.setContent(html_2daf328db267f492a0a1cfb0ddda5f28);
+            
+        
+
+        circle_marker_53d996810f09aa2c92dfb0539f8feaf5.bindPopup(popup_f0a2cfa77cf0459b1a08fd46238df232)
+        ;
+
+        
+    
+    
+            circle_marker_53d996810f09aa2c92dfb0539f8feaf5.bindTooltip(
+                `<div>
+                     UIS-CF
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a08c20956e22b045ee9c580a4308189 = L.circleMarker(
+                [6.994364, -73.065715],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_bbf7d387892031f494ac5da10f706cfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b0f037b54b9631d12492fe1b82adc35 = $(`<div id="html_7b0f037b54b9631d12492fe1b82adc35" style="width: 100.0%; height: 100.0%;">Parque Tecnologico Guatiguara Piedecuesta</div>`)[0];
+                popup_bbf7d387892031f494ac5da10f706cfb.setContent(html_7b0f037b54b9631d12492fe1b82adc35);
+            
+        
+
+        circle_marker_5a08c20956e22b045ee9c580a4308189.bindPopup(popup_bbf7d387892031f494ac5da10f706cfb)
+        ;
+
+        
+    
+    
+            circle_marker_5a08c20956e22b045ee9c580a4308189.bindTooltip(
+                `<div>
+                     UIS-PTG
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_87ff73e39292c15a8ebc42291c52560f = L.circleMarker(
+                [7.119359, -73.123479],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_f59ed9c5cfd68e606e417655dac735ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_88cb5ecc03cd63f18b46aa62abb69cd3 = $(`<div id="html_88cb5ecc03cd63f18b46aa62abb69cd3" style="width: 100.0%; height: 100.0%;">Universidad Industrial de Santander Bucarica</div>`)[0];
+                popup_f59ed9c5cfd68e606e417655dac735ba.setContent(html_88cb5ecc03cd63f18b46aa62abb69cd3);
+            
+        
+
+        circle_marker_87ff73e39292c15a8ebc42291c52560f.bindPopup(popup_f59ed9c5cfd68e606e417655dac735ba)
+        ;
+
+        
+    
+    
+            circle_marker_87ff73e39292c15a8ebc42291c52560f.bindTooltip(
+                `<div>
+                     UIS-BUC
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_630a8013934248136d0e8f99a07b8ab3 = L.circleMarker(
+                [7.0820684, -73.1542554],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_35945bb15a956a14e9747bd1a784d06a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_823ea0b1ace893460b0d29b17febb687 = $(`<div id="html_823ea0b1ace893460b0d29b17febb687" style="width: 100.0%; height: 100.0%;">CENFER Bucaramanga</div>`)[0];
+                popup_35945bb15a956a14e9747bd1a784d06a.setContent(html_823ea0b1ace893460b0d29b17febb687);
+            
+        
+
+        circle_marker_630a8013934248136d0e8f99a07b8ab3.bindPopup(popup_35945bb15a956a14e9747bd1a784d06a)
+        ;
+
+        
+    
+    
+            circle_marker_630a8013934248136d0e8f99a07b8ab3.bindTooltip(
+                `<div>
+                     CENFER
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ec37777896891d621c1c58c8cd20cdb = L.circleMarker(
+                [7.1168332, -73.1055173],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_18014a455f08dc977aeda0c5096bad1d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85c4202126f0b79b7aab29251db0c8c3 = $(`<div id="html_85c4202126f0b79b7aab29251db0c8c3" style="width: 100.0%; height: 100.0%;">Universidad Autonoma de Bucaramanga</div>`)[0];
+                popup_18014a455f08dc977aeda0c5096bad1d.setContent(html_85c4202126f0b79b7aab29251db0c8c3);
+            
+        
+
+        circle_marker_0ec37777896891d621c1c58c8cd20cdb.bindPopup(popup_18014a455f08dc977aeda0c5096bad1d)
+        ;
+
+        
+    
+    
+            circle_marker_0ec37777896891d621c1c58c8cd20cdb.bindTooltip(
+                `<div>
+                     UNAB
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd1ceb054865b30e2f7c201ad2e5525e = L.circleMarker(
+                [7.1051164, -73.123524],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_062f2b3677a4a87cd223b4d26e591195 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7edff1d685c2e164742fa2a40245e83c = $(`<div id="html_7edff1d685c2e164742fa2a40245e83c" style="width: 100.0%; height: 100.0%;">Unidades Tecnologicas de Santander</div>`)[0];
+                popup_062f2b3677a4a87cd223b4d26e591195.setContent(html_7edff1d685c2e164742fa2a40245e83c);
+            
+        
+
+        circle_marker_bd1ceb054865b30e2f7c201ad2e5525e.bindPopup(popup_062f2b3677a4a87cd223b4d26e591195)
+        ;
+
+        
+    
+    
+            circle_marker_bd1ceb054865b30e2f7c201ad2e5525e.bindTooltip(
+                `<div>
+                     UTS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5aeef4ee569e453830a3dc5c97a4e0e5 = L.circleMarker(
+                [7.0381473, -73.0747789],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_b8672360b4b436c841628529030aa0e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0de5372be03db9ea73079758c7eeb1af = $(`<div id="html_0de5372be03db9ea73079758c7eeb1af" style="width: 100.0%; height: 100.0%;">Universidad Pontificia Bolivariana Bucaramanga</div>`)[0];
+                popup_b8672360b4b436c841628529030aa0e9.setContent(html_0de5372be03db9ea73079758c7eeb1af);
+            
+        
+
+        circle_marker_5aeef4ee569e453830a3dc5c97a4e0e5.bindPopup(popup_b8672360b4b436c841628529030aa0e9)
+        ;
+
+        
+    
+    
+            circle_marker_5aeef4ee569e453830a3dc5c97a4e0e5.bindTooltip(
+                `<div>
+                     UPB
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6f22cb96c1ba6e5811663b4da1abd0e = L.circleMarker(
+                [7.063217, -73.130492],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_d603b3c157d98bd364e341084d864c4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_600de6010414f5d5b824bf038bde0866 = $(`<div id="html_600de6010414f5d5b824bf038bde0866" style="width: 100.0%; height: 100.0%;">Planta de Tratamiento Aguas Residuales Rio Frio</div>`)[0];
+                popup_d603b3c157d98bd364e341084d864c4e.setContent(html_600de6010414f5d5b824bf038bde0866);
+            
+        
+
+        circle_marker_e6f22cb96c1ba6e5811663b4da1abd0e.bindPopup(popup_d603b3c157d98bd364e341084d864c4e)
+        ;
+
+        
+    
+    
+            circle_marker_e6f22cb96c1ba6e5811663b4da1abd0e.bindTooltip(
+                `<div>
+                     PTAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8fc2feab5a2d3a08610ef04c26d1b62 = L.circleMarker(
+                [6.9758282, -73.0537166],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_70658e131300ef7e525045d60ac52f7d);
+        
+    
+        var popup_eefdf04cdd37bfa73d69484dfdc9deeb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_165598df60985fb00d73e177e1bfc3e9 = $(`<div id="html_165598df60985fb00d73e177e1bfc3e9" style="width: 100.0%; height: 100.0%;">Sede Recreacional Catay</div>`)[0];
+                popup_eefdf04cdd37bfa73d69484dfdc9deeb.setContent(html_165598df60985fb00d73e177e1bfc3e9);
+            
+        
+
+        circle_marker_d8fc2feab5a2d3a08610ef04c26d1b62.bindPopup(popup_eefdf04cdd37bfa73d69484dfdc9deeb)
+        ;
+
+        
+    
+    
+            circle_marker_d8fc2feab5a2d3a08610ef04c26d1b62.bindTooltip(
+                `<div>
+                     CATAY
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

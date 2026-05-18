@@ -1,0 +1,13 @@
+ESTADISTICAS DEL SISTEMA
+========================================
+Homecenter Bucaramanga: 1 recargas
+Centro Comercial Quinta Etapa: 0 recargas
+Centro Comercial Cacique: 0 recargas
+Centro Comercial Canaveral: 0 recargas
+Estacion de Servicio Terpel Piedecuesta: 5 recargas
+Exito de la Rosita: 0 recargas
+Centro Comercial La Florida: 2 recargas
+Promotores del Oriente via a Giron: 0 recargas
+
+Tesla Model S AWD: 3 recargas | 1596.02 km
+BYD Dolphin 60.4 kWh: 5 recargas | 1530.51 km
