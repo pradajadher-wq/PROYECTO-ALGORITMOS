@@ -440,5 +440,4 @@ while opcion != 9:
         case _:
             print("Opcion no valida, intente de nuevo")
             
-            #actuualizacion 
     
