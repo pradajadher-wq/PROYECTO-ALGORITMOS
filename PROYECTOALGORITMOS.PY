@@ -6,7 +6,6 @@ import random
 import osmnx as ox
 import networkx as nx
 import folium
-import plotly.express as px
 import plotly.graph_objects as go
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
@@ -250,12 +249,19 @@ while opcion != 9:
                     print(f"  Total recargas: {vehiculo['total_recargas']}")
 
         case 5:
-            print("\n--- Estadisticas de recargas por electrolinera ---")
-            for e in electrolineras:
-                print(f"  {e['nombre']}: {e['recargas']} recargas")
-            print("\n--- Estadisticas por vehiculo ---")
-            for v in vehiculos:
-                print(f"  {v['nombre']}: {v['total_recargas']} recargas | {v['km_recorridos']:.2f} km recorridos")
+            simulacion_hecha=any(
+                v["total_recargas"] > 0 or v["km_recorridos"] > 0 
+                for v in vehiculos
+            )
+            if not simulacion_hecha:
+                print("\nPrimero debes ejecutar la simulacion (opcion 4)")
+            else:
+                print("\n--- Estadisticas de recargas por electrolinera ---")
+                for e in electrolineras:
+                    print(f"  {e['nombre']}: {e['recargas']} recargas")
+                print("\n--- Estadisticas por vehiculo ---")
+                for v in vehiculos:
+                    print(f"  {v['nombre']}: {v['total_recargas']} recargas | {v['km_recorridos']:.2f} km recorridos")
         case 6:
             print("\n--- Modelo Predictivo de Demanda (IA) ---")
             if not historial_recargas:
@@ -314,84 +320,125 @@ while opcion != 9:
 
         case 7:
             print("\n--- Visualizacion de Mapas ---")
-            # Mapa Folium
-            mapa = folium.Map(location=[7.1193, -73.1227], zoom_start=13)
+            if not historial_recargas:
+                print("  No hay recargas registradas aun. Ejecuta la simulacion (opcion 4) para ver datos completos.")
+            else:
+                    
+                # Mapa Folium
+                mapa = folium.Map(location=[7.1193, -73.1227], zoom_start=13)
 
-            for e in electrolineras:
-                if e["latitud"] is not None:
-                    folium.Marker(
-                        location=[e["latitud"], e["longitud"]],
-                        popup=f"{e['nombre']} - Recargas: {e['recargas']}",
-                        tooltip=e["nombre"],
-                        icon=folium.Icon(color="green", icon="bolt", prefix="fa")
-                    ).add_to(mapa)
+                for e in electrolineras:
+                    if e["latitud"] is not None:
+                        folium.Marker(
+                            location=[e["latitud"], e["longitud"]],
+                            popup=f"{e['nombre']} - Recargas: {e['recargas']}",
+                            tooltip=e["nombre"],
+                            icon=folium.Icon(color="green", icon="bolt", prefix="fa")
+                        ).add_to(mapa)
 
-            for p in puntos_recorrido:
-                if p["latitud"] is not None:
-                    folium.CircleMarker(
-                        location=[p["latitud"], p["longitud"]],
-                        radius=7,
-                        color="blue",
-                        fill=True,
-                        popup=p["nombre"],
-                        tooltip=p["abreviatura"]
-                    ).add_to(mapa)
+                for p in puntos_recorrido:
+                    if p["latitud"] is not None:
+                        folium.CircleMarker(
+                            location=[p["latitud"], p["longitud"]],
+                            radius=7,
+                            color="blue",
+                            fill=True,
+                            popup=p["nombre"],
+                            tooltip=p["abreviatura"]
+                        ).add_to(mapa)
 
-            mapa.save("mapa_electrolineras.html")
-            print("  Mapa guardado: mapa_electrolineras.html")
+                mapa.save("mapa_electrolineras.html")
+                print("  Mapa guardado: mapa_electrolineras.html")
 
-            # Grafica Plotly
-            nombres_e = [e["nombre"].split()[0:2] for e in electrolineras]
-            nombres_e = [" ".join(n) for n in nombres_e]
-            recargas_e = [e["recargas"] for e in electrolineras]
+                # Grafica Plotly
+                nombres_e = [e["nombre"].split()[0:2] for e in electrolineras]
+                nombres_e = [" ".join(n) for n in nombres_e]
+                recargas_e = [e["recargas"] for e in electrolineras]
 
-            fig = go.Figure(go.Bar(
-                x=nombres_e,
-                y=recargas_e,
-                marker_color="green"
-            ))
-            fig.update_layout(
-                title="Recargas por Electrolinera",
-                xaxis_title="Electrolinera",
-                yaxis_title="Numero de Recargas"
-            )
-            fig.show()
-            print("  Grafica Plotly generada.")
+                fig = go.Figure(go.Bar(
+                    x=nombres_e,
+                    y=recargas_e,
+                    marker_color="green"
+                ))
+                fig.update_layout(
+                    title="Recargas por Electrolinera",
+                    xaxis_title="Electrolinera",
+                    yaxis_title="Numero de Recargas"
+                )
+                fig.show()
+                print("  Grafica Plotly generada.")
 
         case 8:
-            print("\n--- Guardar Datos en Archivos ---")
-            os.makedirs("resultados", exist_ok=True)
+            
+            if not historial_recargas:
+                print("\nNo hay datos para guardar. Ejecuta la simulacion (opcion 4) primero.")
+            else:
+                print("\n--- Guardar Datos en Archivos ---")
+                os.makedirs("resultados", exist_ok=True)
 
-            # CSV de recargas
-            with open("resultados/recargas.csv", "w", newline="", encoding="utf-8") as f:
-                writer = csv.writer(f)
-                writer.writerow(["vehiculo", "electrolinera", "municipio", "latitud", "longitud"])
-                for r in historial_recargas:
-                    writer.writerow([r["vehiculo"], r["electrolinera"],
-                                     r["municipio"], r["latitud"], r["longitud"]])
-            print("  Guardado: resultados/recargas.csv")
+                # CSV de recargas
+                with open("resultados/recargas.csv", "w", newline="", encoding="utf-8") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(["vehiculo", "electrolinera", "municipio", "latitud", "longitud"])
+                    for r in historial_recargas:
+                        writer.writerow([r["vehiculo"], r["electrolinera"],
+                                        r["municipio"], r["latitud"], r["longitud"]])
+                print("  Guardado: resultados/recargas.csv")
 
-            # JSON de electrolineras
-            with open("resultados/electrolineras.json", "w", encoding="utf-8") as f:
-                json.dump(electrolineras, f, ensure_ascii=False, indent=2)
-            print("  Guardado: resultados/electrolineras.json")
+                # JSON de electrolineras
+                with open("resultados/electrolineras.json", "w", encoding="utf-8") as f:
+                    json.dump(electrolineras, f, ensure_ascii=False, indent=2)
+                print("  Guardado: resultados/electrolineras.json")
 
-            # TXT de estadisticas
-            with open("resultados/estadisticas.txt", "w", encoding="utf-8") as f:
-                f.write("ESTADISTICAS DEL SISTEMA\n")
-                f.write("=" * 40 + "\n")
-                for e in electrolineras:
-                    f.write(f"{e['nombre']}: {e['recargas']} recargas\n")
-                f.write("\n")
-                for v in vehiculos:
-                    f.write(f"{v['nombre']}: {v['total_recargas']} recargas | "
-                            f"{v['km_recorridos']:.2f} km\n")
-            print("  Guardado: resultados/estadisticas.txt")
-
-            print("\n  Todos los archivos guardados en la carpeta 'resultados/'")        
+                # TXT de estadisticas
+                with open("resultados/estadisticas.txt", "w", encoding="utf-8") as f:
+                    f.write("ESTADISTICAS DEL SISTEMA\n")
+                    f.write("=" * 40 + "\n")
+                    for e in electrolineras:
+                        f.write(f"{e['nombre']}: {e['recargas']} recargas\n")
+                    f.write("\n")
+                    for v in vehiculos:
+                        f.write(f"{v['nombre']}: {v['total_recargas']} recargas | "
+                                f"{v['km_recorridos']:.2f} km\n")
+                print("  Guardado: resultados/estadisticas.txt")
+                
+                #XLSX
+                try:
+                    import openpyxl
+                    wb=openpyxl.Workbook()
+                    
+                    #Hoja de recargas
+                    ws1 = wb.active
+                    ws1.title = "Recargas"
+                    ws1.append(["Vehiculo", "Electrolinera", "Municipio", "Latitud", "Longitud"])
+                    for r in historial_recargas:
+                        ws1.append([r["vehiculo"], r["electrolinera"],
+                                    r["municipio"], r["latitud"], r["longitud"]])
+                    
+                    #Hoja de estadisticas
+                    ws2 = wb.create_sheet("Estadisticas")
+                    ws2.append(["Electrolinera", "Municipio", "Recargas"])
+                    for e in electrolineras:
+                        ws2.append([e["nombre"], e["municipio"], e["recargas"]])
+                    
+                    #Hoja de vehiculos
+                    ws3 = wb.create_sheet("Vehiculos")
+                    ws3.append(["Vehiculo", "Gama", "Total Recargas", "Km Recorridos"])
+                    for v in vehiculos:
+                         ws3.append([v["nombre"], v["gama"],
+                                     v["total_recargas"], round(v["km_recorridos"], 2)])
+                    
+                    wb.save("resultados/datos.xlsx")
+                    print("  Guardado: resultados/datos.xlsx")
+                except ImportError:
+                    print("Para guardar xlsx instala openpyxl: pip install openpyxl")
+                
+                print("\n  Todos los archivos guardados en la carpeta 'resultados/'")        
         case 9:
             print("Hasta luego!")
 
         case _:
             print("Opcion no valida, intente de nuevo")
+            
+            #actuualizacion 
     
